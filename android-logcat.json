@@ -1,0 +1,46 @@
+{
+    "logcat": {
+      "title": "Android Logcat",
+      "description": "Android Logcat log definition.",
+      "url": "https://github.com/phoenixuprising/lnav-android-scheme",
+      "timestamp-format": [
+        "%m-%d %H:%M:%S.%L"
+      ],
+      "regex": {
+        "basic": {
+          "pattern": "^(?<timestamp>\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\\.\\d{3})\\s+(?<pid>\\d+)\\s+(?<tid>\\d+)\\s+(?<level>\\w)\\s+(?<tag>.*?):(?<body>.*)$"
+        }
+      },
+      "level-field": "level",
+      "level": {
+        "error": "E",
+        "warning": "W",
+        "info": "I",
+        "debug": "D",
+        "trace": "V"
+      },
+      "value": {
+        "pid": {
+          "kind": "integer",
+          "identifier": true
+        },
+        "tid": {
+          "kind": "integer",
+          "identifier": true
+        },
+        "tag": {
+          "kind": "string",
+          "identifier": true
+        },
+        "body": {
+          "kind": "string",
+          "identifier": false
+        }
+      },
+      "sample": [
+        {
+          "line": "06-28 22:25:04.770   305   374 D GCH_CameraDevice: FindLibraryPaths: Unable to open directory /vendor/lib/camera/capture_sessions/ (No such file or directory)"
+        }
+      ]
+    }
+  }
